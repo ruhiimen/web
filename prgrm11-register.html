@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Registration Form</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f9f9f9;
+padding: 20px;
+}
+.container {
+width: 50%;
+margin: auto;
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+text-align: center;
+margin-bottom: 20px;
+}
+label {
+display: block;
+margin-top: 15px;
+text-align: left;
+}
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+input[type="tel"], 
+input[type="date"] {
+width: 100%;
+padding: 10px;
+margin-top: 5px;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-sizing: border-box;
+}
+input[type="submit"] {
+width: 100%;
+background-color: #4CAF50;
+color: white;
+cursor: pointer;
+padding: 10px;
+margin-top: 20px;
+border: none;
+border-radius: 5px;
+}
+input[type="submit"]:hover {
+background-color: #45a049;
+}
+.error {
+color: red;
+font-size: 14px;
+text-align: left;
+margin-top: 5px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Registration Form</h2>
+<form id="registrationForm" onsubmit="return validateForm()">
+<label for="name">Full Name:</label>
+<input type="text" id="name" name="name" placeholder="Enter your full name">
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" placeholder="Enter your Email">
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" placeholder="Enter your Password">
+<label for="phone">Phone Number:</label>
+<input type="tel" id="phone" name="phone" placeholder="Enter your Phone Number">
+<label for="dob">Date of Birth:</label>
+<input type="date" id="dob" name="dob">
+<input type="submit" value="Register">
+</form>
+<div id="errorMessages"></div>
+</div>
+<script>
+function validateForm() {
+let form = document.getElementById("registrationForm");
+let name = form["name"].value.trim();
+let email = form["email"].value.trim();
+let password = form["password"].value;
+let phone = form["phone"].value.trim();
+let dob = form["dob"].value;
+let errorMessages = document.getElementById("errorMessages");
+errorMessages.innerHTML = "";
+let isValid = true;
+if (name === "") {
+errorMessages.innerHTML += "<p class='error'>Name is required.</p>";
+isValid = false;
+}
+let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+if (!emailPattern.test(email)) {
+errorMessages.innerHTML += "<p class='error'>Please enter a valid email address.</p>";
+isValid = false;
+}
+if (password.length < 6) {
+errorMessages.innerHTML += "<p class='error'>Password must be at least 6 characters long.</p>";
+isValid = false;
+}
+let phonePattern = /^[0-9]{10}$/;
+if (!phonePattern.test(phone)) {
+errorMessages.innerHTML += "<p class='error'>Phone number must be exactly 10 digits.</p>";
+isValid = false;
+}
+if (dob === "") {
+errorMessages.innerHTML += "<p class='error'>Date of birth is required.</p>";
+isValid = false;
+}
+return isValid;
+}
+</script>
+</body>
+</html>
