@@ -1,146 +1,187 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Online Exam</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-margin: 20px;
-background-color: #946B63;
-}
-.times {
-font-size: 20px;
-font-weight: bold;
-}
-.question {
-margin-bottom: 20px;
-}
-.btn {
-padding: 10px 20px;
-background-color: blue;
-color: white;
-border: none;
-cursor: pointer;
-}
-</style>
+    <title>Online Examination</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: lightblue;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            width: 60%;
+            margin: 50px auto;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        .question {
+            text-align: left;
+            margin: 20px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            color: green;
+            font-size: 20px;
+        }
+    </style>
 </head>
+
 <body>
-<center><h1>ONLINE EXAMINATION</h1></center>
-<div class="times" id="times">Time Left : 10:00</div>
-<form id="examform">
-<div class="question">
-<p>1. What is the capital of France?</p>
-<input type="radio" name="q1" value="London" id="q1a"> London <br>
-<input type="radio" name="q1" value="Berlin" id="q1b"> Berlin <br>
-<input type="radio" name="q1" value="Paris" id="q1c"> Paris <br>
+
+<div class="container">
+
+    <h1>Online Examination</h1>
+
+    <h3>Time: <span id="timer">60</span> seconds</h3>
+
+    <form id="examForm">
+
+        <div class="question">
+            <p>1. Which language is used for web page structure?</p>
+            <input type="radio" name="q1" value="a"> Python<br>
+            <input type="radio" name="q1" value="b"> HTML<br>
+            <input type="radio" name="q1" value="c"> Java<br>
+        </div>
+
+        <div class="question">
+            <p>2. Which language is used for styling web pages?</p>
+            <input type="radio" name="q2" value="a"> CSS<br>
+            <input type="radio" name="q2" value="b"> C++<br>
+            <input type="radio" name="q2" value="c"> Python<br>
+        </div>
+
+        <div class="question">
+            <p>3. Which language is used to make web pages interactive?</p>
+            <input type="radio" name="q3" value="a"> HTML<br>
+            <input type="radio" name="q3" value="b"> JavaScript<br>
+            <input type="radio" name="q3" value="c"> SQL<br>
+        </div>
+ <div class="question">
+            <p>4. Which language is used to make web pages?</p>
+            <input type="radio" name="q4" value="a"> HTML<br>
+            <input type="radio" name="q4" value="b"> JavaScript<br>
+            <input type="radio" name="q4" value="c"> SQL<br>
+        </div>
+        <div class="question">
+            <p>5. Who is the father of computer</p>
+            <input type="radio" name="q5" value="a"> charles babbage<br>
+            <input type="radio" name="q5" value="b"> alan turing<br>
+            <input type="radio" name="q5" value="c"> bill gates<br>
+        </div>
+        <div class="question">
+            <p>6. Which language is known as the mother of all programming languages?</p>
+            <input type="radio" name="q6" value="a"> python<br>
+            <input type="radio" name="q6" value="b"> c<br>
+            <input type="radio" name="q6" value="c"> java<br>
+        </div>
+        <div class="question">
+            <p>7. Which memory is fastest?</p>
+            <input type="radio" name="q7" value="a"> RAM<br>
+            <input type="radio" name="q7" value="b"> ROM<br>
+            <input type="radio" name="q7" value="c"> cache<br>
+        </div>
+         <div class="question">
+            <p>8. Which protocol is used to send emails?</p>
+            <input type="radio" name="q8" value="a">FTP<br>
+            <input type="radio" name="q8" value="b"> HTTP<br>
+            <input type="radio" name="q8" value="c"> SMTP<br>
+        </div>
+        <div class="question">
+            <p>9. Which data structure follows FIFO?</p>
+            <input type="radio" name="q9" value="a">stack<br>
+            <input type="radio" name="q9" value="b"> queue<br>
+            <input type="radio" name="q9" value="c"> tree<br>
+        </div>
+        <div class="question">
+            <p>10. Who developed python?</p>
+            <input type="radio" name="q10" value="a">james gosling<br>
+            <input type="radio" name="q10" value="b"> dennis ritchie<br>
+            <input type="radio" name="q10" value="c"> guido van rossum<br>
+        </div>
+        <br>
+
+        <button type="button" onclick="submitExam()">
+            Submit Exam
+        </button>
+
+    </form>
+
+    <h2 id="result"></h2>
+
 </div>
-<div class="question">
-<p>2. Who is known as the father of computers?</p>
-<input type="radio" name="q2" value="Charles Babbage" id="q2a"> Charles Babbage <br>
-<input type="radio" name="q2" value="Alan Turing" id="q2b"> Alan Turing <br>
-<input type="radio" name="q2" value="Bill Gates" id="q2c"> Bill Gates <br>
-</div>
-<div class="question">
-<p>3. What is 30+40+15?</p>
-<input type="radio" name="q3" value="40" id="q3a"> 40 <br>
-<input type="radio" name="q3" value="85" id="q3b"> 85 <br>
-<input type="radio" name="q3" value="90" id="q3c"> 90 <br>
-</div>
-<div class="question">
-<p>4. Which is the deepest ocean in the world?</p>
-<input type="radio" name="q4" value="Atlantic Ocean" id="q4a"> Atlantic Ocean <br>
-<input type="radio" name="q4" value="Arctic Ocean" id="q4b"> Arctic Ocean <br>
-<input type="radio" name="q4" value="Pacific Ocean" id="q4c"> Pacific Ocean <br>
-</div>
-<div class="question">
-<p>5. Who painted the Mona Lisa?</p>
-<input type="radio" name="q5" value="Harmenszoon" id="q5a"> Harmenszoon <br>
-<input type="radio" name="q5" value="Leonardo da Vinci" id="q5b"> Leonardo da Vinci <br>
-<input type="radio" name="q5" value="Pablo Picasso" id="q5c"> Pablo Picasso <br>
-</div>
-<div class="question">
-<p>6. What is the national tree of India?</p>
-<input type="radio" name="q6" value="Banyan Tree" id="q6a"> Banyan Tree <br>
-<input type="radio" name="q6" value="Banana Tree" id="q6b"> Banana Tree <br>
-<input type="radio" name="q6" value="Oak Tree" id="q6c"> Oak Tree <br>
-</div>
-<div class="question">
-<p>7. Who wrote the play "Romeo and Juliet"?</p>
-<input type="radio" name="q7" value="William Shakespeare" id="q7a"> William Shakespeare <br>
-<input type="radio" name="q7" value="Ben Johnson" id="q7b"> Ben Johnson <br>
-<input type="radio" name="q7" value="John Webster" id="q7c"> John Webster <br>
-</div>
-<div class="question">
-<p>8. Which element has the chemical symbol "O"?</p>
-<input type="radio" name="q8" value="Ozone" id="q8a"> Ozone <br>
-<input type="radio" name="q8" value="Osmium" id="q8b"> Osmium <br>
-<input type="radio" name="q8" value="Oxygen" id="q8c"> Oxygen <br>
-</div>
-<div class="question">
-<p>9. How many continents are there in the world?</p>
-<input type="radio" name="q9" value="7" id="q9a"> 7 <br>
-<input type="radio" name="q9" value="8" id="q9b"> 8 <br>
-<input type="radio" name="q9" value="5" id="q9c"> 5 <br>
-</div>
-<div class="question">
-<p>10. When is Republic Day celebrated in India?</p>
-<input type="radio" name="q10" value="8th Oct" id="q10a"> 8th Oct <br>
-<input type="radio" name="q10" value="26th Jan" id="q10b"> 26th Jan <br>
-<input type="radio" name="q10" value="5th Mar" id="q10c"> 5th Mar <br>
-</div>
-<center><button type="button" class="btn" onclick="submitExam()">Submit</button></center>
-</form>
-<p id="result"></p>
+
 <script>
-let timeLeft = 600;
-const timesElement = document.getElementById('times');
-let timerInterval;
-function updateTimer() {
-const minutes = Math.floor(timeLeft / 60);
-const seconds = timeLeft % 60;
-timesElement.textContent = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-if (timeLeft > 0) {
-timeLeft--;
-timerInterval = setTimeout(updateTimer, 1000);
-} else {
-alert("Time is up!");
-submitExam();
-}
-}
-updateTimer();
-function submitExam() {
-clearTimeout(timerInterval);
-const form = document.getElementById('examform');
-const resultElement = document.getElementById('result');
-const answers = {
-q1: "Paris",
-q2: "Charles Babbage",
-q3: "85",
-q4: "Pacific Ocean",
-q5: "Leonardo da Vinci",
-q6: "Banyan Tree",
-q7: "William Shakespeare",
-q8: "Oxygen",
-q9: "7",
-q10: "26th Jan"
-};
-let score = 0;
-let total = Object.keys(answers).length;
-for (let key in answers) {
-const radios = form.elements[key];
-if (radios) {
-for (let r of radios) {
-if (r.checked && r.value === answers[key]) {
-score++;
-}
-}
-}
-}
-resultElement.textContent = `You Scored ${score} out of ${total}`;
-resultElement.style.fontSize = "18px";
-resultElement.style.fontWeight = "bold";
-form.style.display = "none";
-}
+
+    let time = 60;
+
+    let countdown = setInterval(function() {
+
+        time--;
+
+        document.getElementById("timer").innerHTML = time;
+
+        if (time <= 0) {
+            clearInterval(countdown);
+            submitExam();
+        }
+
+    }, 1000);
+
+
+    function submitExam() {
+
+        clearInterval(countdown);
+
+        let score = 0;
+
+        let answers = {
+            q1: "b",
+            q2: "a",
+            q3: "b",
+            q4: "a",
+            q5: "a",
+            q6: "b",
+            q7: "c",
+            q8: "c",
+            q9: "b",
+            q10: "c",
+        };
+
+        for (let question in answers) {
+
+            let selected = document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+            if (selected && selected.value === answers[question]) {
+                score++;
+            }
+        }
+
+        document.getElementById("result").innerHTML =
+            "Exam Completed!<br>Your Score: " + score + "/10";
+
+        document.getElementById("examForm").style.display = "none";
+
+    }
+
 </script>
+
 </body>
 </html>
